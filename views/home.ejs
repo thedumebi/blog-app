@@ -1,0 +1,21 @@
+<%- include("partials/header") -%>
+
+<h1>Home</h1>
+<p><%= startingContent %></p>
+<!-- for (var i = 0; i < posts.length; i++) {
+  console.log(posts[i].title);
+}   -->
+
+<!-- The code above can be done cleaner by using .foreach() method -->
+<!-- posts.forEach(function(post) {
+  console.log(post.title);
+}); -->
+
+<% posts.forEach(function(post) { %>
+  <h1><%= post.title %></h1>
+  <p><%= post.content.substring(0, 100) + " ..."%><a href="/posts/<%=post.title%>">Read More</a></p>
+  <%# post.content.slice(0, 100) would also work above %>
+<% }); %>
+
+
+<%- include("partials/footer") -%>
